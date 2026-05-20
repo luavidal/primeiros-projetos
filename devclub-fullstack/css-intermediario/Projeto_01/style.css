@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+    background-color: #fff;
+    width: 100%;
+    max-width: 375px;
+    height: 812px;
+}
+
+h1 {
+    width: 268px;
+    margin-top: 58px;
+    margin-left: 54px;
+    font-weight: 400;
+    font-size: 36px;
+    justify-content: center;
+    color: #5d5d7d;
+    text-align: center;
+}
+
+p {
+    display: block;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    opacity: 60%;
+    width: 296px;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+button {
+    width: 269px;
+    height: 62px;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    background-color: #9499ea;
+    box-shadow: 0 10px 24px #9499ea98;
+    border: none;
+    border-radius: 30px;
+    margin-left: 54px;
+    margin-top: 15px;
+    margin-bottom: 47px;
+}
+
+.sec-02 {
+    background-color: #5d5d7d16;
+    display: flex;
+}
+
+.img-01 {
+    width: 68.67px;
+    height: 235.8px;
+    margin-top: 133.15px;
+    margin-left: 51px;
+}
+
+.img-02 {
+    width: 173.18px;
+    height: 322.51px;
+    margin: 46px 0px 46.9px 29.15px;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        width: 100%;
+        max-width: 1440px;
+        height: 900px;
+        display: flex;
+    }
+
+    h1 {
+        width: 386px;
+        margin-top: 381px;
+        margin-left: 136px;
+        font-size: 70px;
+        text-align: justify;
+    }
+
+    p {
+        font-size: 28px;
+        line-height: 48px;
+        width: 540px;
+        margin-left: 136px;
+        margin-top: 15px;
+    }
+
+    button {
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        margin-left: 136px;
+        margin-top: 15px;
+        margin-bottom: 123px;
+    }
+
+    .sec-02 {
+        background-color: #5d5d7d16;
+        display: flex;
+        width: 491px;
+        height: 900px;
+        margin-left: 273px;
+
+    }
+
+    .img-01 {
+        width: 115.54px;
+        height: 410.33px;
+        margin-top: 381px;
+        margin-left: -142px;
+    }
+
+    .img-02 {
+        width: 291.3px;
+        height: 561.04px;
+        margin: 216px 177px 123.96px 49.15px;
+    }
+
+    .menu {
+        
+    }
+}

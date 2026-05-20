@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;    
+}
+
+body {
+    background-image: url(./fundo-rdr2-page.png);
+}
+
+#cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #000;
+    color: gray;
+}
+
+#logo-rs {
+    width: 40px;
+    padding-left: 20px;
+}
+
+#logo-rdr2 {
+    width: 300px;
+    height: auto;
+}
+
+#espingarda {
+    width: 100%;
+    height: auto;
+}
+
+#comprar, #fotos {
+    padding: 10px 20px;
+    background-color: #ffffffa6;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#comprar:hover, #fotos:hover {
+    background-color: #ffffff;
+    color: #000;
+    font-size: 18px;
+    transition: ease-out 0.3s;
+}
+
+#sinopse {
+    padding: 50px;
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-family: "RDR Lino Regular";
+}
+
+.minibanner {
+    width: 30%;
+    margin: 15px;
+    display: inline-block;
+}
+
+.minibanner:hover {
+    transform: scale(1.05);
+    transition: ease-out 0.3s;
+}
