@@ -1,8 +1,15 @@
 const input = document.querySelector("input");
 let mensagem = document.querySelector("#mensagem");
+const select = document.querySelector("select");
+const button = document.querySelector("#my-button");
+
+function reg (register){
+    console.log(register)
+}
+select.addEventListener("change", reg)
 
 function DigiteiAqui () {
-    console.log("Digitei no input!");
+    console.log("Digitei no input!" + input.value);
 }
 
 function cliqueiNoBotao() {
@@ -16,5 +23,4 @@ function cliqueiNoBotao() {
 }
 
 function registrar() {
-
 }

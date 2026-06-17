@@ -37,4 +37,10 @@ button:hover, a:hover {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.1s ease;
-}   
+}
+
+select {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+}

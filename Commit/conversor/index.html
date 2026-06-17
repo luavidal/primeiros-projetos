@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/conversor/style.css">
+    <title>Conversor de moedas</title>
+</head>
+<body>
+    <img src="/conversor/archives/logo 1.png" id="img-topo" alt="Money" width="200">
+
+    <section>
+        <text>Converter de:</text>
+        <select>
+            <option value="BLR">Real</option>
+            <option value="USD">Dólar Americano</option>
+            <option value="EUR">Euro</option>
+        </select>
+        
+        <text>Converter para:</text>
+        <select>
+            <option value="USD">Dólar Americano</option>
+            <option value="EUR">Euro</option>
+            <option value="BLR">Real</option>
+        </select>
+
+        <text>Valor:</text>
+        <input type="number" placeholder="Digite o valor" inputmode="numeric">
+
+        <button>Converter</button>
+
+        <section class="painel">
+            <img src="/conversor/archives/brasil 2.png" alt="Money" width="100">
+            <text id="country-from">Real</text>
+            <text id="value-from">R$ 0,00</text>
+            <img src="/conversor/archives/Vector.png" alt="Money" width="50">
+            <img src="/conversor/archives/estados-unidos 1.png" alt="Money" width="100">
+            <text id="country-to">Dollar Americano</text>
+            <text id="value-to">USD 0,00</text>
+        </section>
+    </section>
+    
+</body>
+
+<script src="/conversor/script.js"></script>
+</html>
