@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/conversor/style.css">
+    <title>Conversor de moedas</title>
+</head>
+<body>
+    <img src="/conversor/archives/logo 1.png" id="img-topo" alt="Money" width="200">
+
+    <section class="painel">
+        <text>Converter <b>de</b></text>
+        <select selecionar()>
+            <option value="BRL">R$ Real brasileiro</option>
+            <option value="USD">US$ Dólar Americano</option>
+            <option value="EUR">€ Euro</option>
+        </select>
+        
+        <text>Converter <b>para</b></text>
+        <select selecionar()>
+            <option value="USD">US$ Dólar Americano</option>
+            <option value="EUR">€ Euro</option>
+            <option value="BRL">R$ Real brasileiro</option>
+        </select>
+
+        <text id="text-valor"><b>Valor</b></text>
+        <input type="number" placeholder="Digite o valor" inputmode="numeric">
+
+        <button onclick="converter()">Converter</button>
+
+        <section class="resultado">
+            <img src="/conversor/archives/BRL.png" class="pais" alt="Money" width="100">
+            <text class="country">Real</text>
+            <text class="value" id="value-from"><span>R$</span> 0,00</text>
+            <img src="/conversor/archives/Vector.png" class="conv" alt="Money" width="50">
+            <img src="/conversor/archives/USD.png" class="pais" alt="Money" width="100">
+            <text class="country">Dólar Americano</text>
+            <text class="value" id="value-to"><span>US$</span> 0,00</text>
+        </section>
+    </section>
+    
+</body>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #8A51FC;
+}
+
+#img-topo {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    margin-bottom: 16px;
+}
+
+.painel {
+    display: flex;
+    width: 375px;
+    height: 712px;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 44px 24px 23px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 12px 0 13px;
+    border-radius: 10px;
+    border: 1px solid #772FD3;
+    margin-top: 36px;
+    height: 276px;
+}
+
+text {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    color: #777
+}
+
+#text-valor {
+    font-weight: 700;
+}
+
+select {
+    margin-bottom: 24px;
+    width: 327px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    padding: 15px 18px;
+    color: #555;
+    font-weight: 700;
+    -webkit-appearance: none;  /* Chrome, Safari, Edge e navegadores baseados em WebKit */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;          /* Propriedade padrão CSS3 */
+}
+
+input {
+    width: 327px;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    padding: 15px 18px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: #555;
+    font-weight: 700;
+    box-shadow: 2px 2px 5px 0px #00000026;
+
+}
+
+button {
+    width: 327px;
+    height: 48px;
+    border-radius: 4px;
+    border: none;
+    background-color: #772FD3;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 15px 0;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.pais {
+    width: 44px;
+    height: 44px;
+}
+
+.conv {
+    width: 35px;
+    margin-bottom: 13px;
+}
+
+.value {
+    font-weight: 700;
+    font-size: 20px;
+    color: #555;
+}
+
+#country-from,
+#country-to {
+    margin-bottom: 0;
+}
+</style>
+
+<script>
+
+const selectFrom = document.querySelectorAll("select")[0];
+const selectTo = document.querySelectorAll("select")[1];
+const valueInput = document.querySelector("input");
+let v1 = document.querySelectorAll(".value")[0];
+let v2 = document.querySelectorAll(".value")[1];
+let bandeira1 = document.querySelectorAll(".pais")[0];
+let bandeira2 = document.querySelectorAll(".pais")[1];
+let cf = document.querySelectorAll(".country")[0];
+let ct = document.querySelectorAll(".country")[1];
+let s1 = document.querySelectorAll("span")[0];
+let s2 = document.querySelectorAll("span")[1];
+
+
+const moeda = {
+    "USD": 1.0,
+    "BRL": 5.18,
+    "EUR": 0.87,
+    "GBP": 0.76,
+    "BTC": 0.086
+};
+
+const sigla = {
+    "USD": "US$",
+    "BRL": "R$",
+    "EUR": "€",
+    "GBP": "£",
+    "BTC": "₿"
+};
+
+selectFrom.addEventListener("change", selecionar);
+selectTo.addEventListener("change", selecionar);
+
+function selecionar() {
+
+    bandeira1.src = `/conversor/archives/${selectFrom.value}.png`;
+    bandeira2.src = `/conversor/archives/${selectTo.value}.png`;
+
+    cf.innerHTML = selectFrom.options[selectFrom.selectedIndex].text;
+    ct.innerHTML = selectTo.options[selectTo.selectedIndex].text;
+
+    s1.innerHTML = `${sigla[selectFrom.value]}`; 
+    s2.innerHTML = `${sigla[selectTo.value]}`;
+}
+
+
+function converter() {
+    const x = moeda[selectTo.value] / moeda[selectFrom.value] * parseFloat(valueInput.value);
+    
+    console.log(`${valueInput.value} ${selectFrom.value} é igual a ${x.toFixed(2)} ${selectTo.value}`);
+    alert(`${valueInput.value} ${selectFrom.value} é igual a ${x.toFixed(2)} ${selectTo.value}`);
+
+    v1.innerHTML = `${sigla[selectFrom.value]} ${parseFloat(valueInput.value).toFixed(2)}`; 
+    v2.innerHTML = `${sigla[selectTo.value]} ${parseFloat(valueInput.value).toFixed(2) * moeda[selectTo.value]}`;
+}
+</script>
+</html>

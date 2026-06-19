@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/conversor/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Conversor de moedas</title>
 </head>
 <body>
-    <img src="/conversor/archives/logo 1.png" id="img-topo" alt="Money" width="200">
+    <img src="./archives/logo 1.png" id="img-topo" alt="Money" width="200">
 
-    <section>
-        <text>Converter de:</text>
-        <select>
-            <option value="BLR">Real</option>
-            <option value="USD">Dólar Americano</option>
-            <option value="EUR">Euro</option>
+    <section class="painel">
+        <text>Converter <b>de</b></text>
+        <select selecionar()>
+            <option value="BRL">R$ Real brasileiro</option>
+            <option value="USD">US$ Dólar Americano</option>
+            <option value="EUR">€ Euro</option>
         </select>
         
-        <text>Converter para:</text>
-        <select>
-            <option value="USD">Dólar Americano</option>
-            <option value="EUR">Euro</option>
-            <option value="BLR">Real</option>
+        <text>Converter <b>para</b></text>
+        <select selecionar()>
+            <option value="USD">US$ Dólar Americano</option>
+            <option value="EUR">€ Euro</option>
+            <option value="BRL">R$ Real brasileiro</option>
         </select>
 
-        <text>Valor:</text>
+        <text id="text-valor"><b>Valor</b></text>
         <input type="number" placeholder="Digite o valor" inputmode="numeric">
 
-        <button>Converter</button>
+        <button onclick="converter()">Converter</button>
 
-        <section class="painel">
-            <img src="/conversor/archives/brasil 2.png" alt="Money" width="100">
-            <text id="country-from">Real</text>
-            <text id="value-from">R$ 0,00</text>
-            <img src="/conversor/archives/Vector.png" alt="Money" width="50">
-            <img src="/conversor/archives/estados-unidos 1.png" alt="Money" width="100">
-            <text id="country-to">Dollar Americano</text>
-            <text id="value-to">USD 0,00</text>
+        <section class="resultado">
+            <img src="./archives/BRL.png" class="pais" alt="Money" width="100">
+            <text class="country">Real</text>
+            <text class="value" id="value-from"><span>R$</span> 0,00</text>
+            <img src="./archives/Vector.png" class="conv" alt="Money" width="50">
+            <img src="./archives/USD.png" class="pais" alt="Money" width="100">
+            <text class="country">Dólar Americano</text>
+            <text class="value" id="value-to"><span>US$</span> 0,00</text>
         </section>
     </section>
     
 </body>
 
-<script src="/conversor/script.js"></script>
+<script src="script.js"></script>
 </html>
