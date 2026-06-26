@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <section>
+        <div class="display">
+            <h1>0</h1>
+        </div>
+        <div class="digitos">
+            <div class="funcoes" id="topo">
+                <p>%</p>
+                <p>x²</p>
+                <p>&radic;</p>
+                <p>&div;</p>
+            </div>
+            <div class="num">
+                <div class="l1">
+                    <p class="n">7</p>
+                    <p class="n">8</p>
+                    <p class="n">9</p>
+                </div>
+                <div class="l2">
+                    <p class="n">4</p>
+                    <p class="n">5</p>
+                    <p class="n">6</p>
+                </div>
+                <div class="l3">
+                    <p class="n">4</p>
+                    <p class="n">5</p>
+                    <p class="n">6</p>
+                </div>
+                <div class="l4">
+                    <p class="n">1</p>
+                    <p class="n">2</p>
+                    <p class="n">3</p>
+                </div>
+                <div class="l5">
+                    <p class="n">&plusmn;</p>
+                    <p class="n">0</p>
+                    <p class="n">,</p>
+                </div>
+            </div>
+             <div class="funcoes" id="lateral">
+                <p>X</p>
+                <p>-</p>
+                <p>+</p>
+                <p id="igual">=</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        color: white;
+    }
+
+    section {
+        background-color: #202020;
+        border: none;
+        border-radius: 6px;
+    }
+
+    .display {
+        justify-items: end;
+    }
+
+    .funcoes {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .num {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .l1, .l2, .l3, .l4, .l5 {
+        display: flex;
+    }
+
+    #lateral {
+        display: flex;
+        flex-direction: column;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2px;
+        width: 7vw;
+        height: 7vh;
+        background-color: #323232;
+    }
+
+    .n {
+        background-color: #3b3b3b;
+    }
+</style>
+
+</html>

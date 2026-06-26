@@ -53,6 +53,8 @@ function selecionar() {
 
     s1.innerHTML = `${sigla[selectFrom.value]}`; 
     s2.innerHTML = `${sigla[selectTo.value]}`;
+
+    converter()
 }
 
 
@@ -64,6 +66,3 @@ function converter() {
     v1.innerHTML = `${sigla[selectFrom.value]} ${parseFloat(valueInput.value).toFixed(2)}`; 
     v2.innerHTML = `${sigla[selectTo.value]} ${x.toFixed(2)}`;
 }
-
-
-
