@@ -9,52 +9,53 @@
 
 <body>
     <section>
+        <div class="calc">
+            <p></p>
+        </div>
         <div class="display">
             <h1>0</h1>
         </div>
         <div class="digitos">
             <div class="funcoes" id="topo">
-                <p>%</p>
-                <p>x²</p>
-                <p>&radic;</p>
-                <p>&div;</p>
+                <button>C</button>
+                <button>Back</button>
+                <button>M+</button>
+                <button>MR</button>
+            </div>
+            <div class="funcoes" id="topo">
+                <button>%</button>
+                <button>x²</button>
+                <button>√</button>
+                <button>÷</button>
             </div>
             <div class="num">
                 <div class="l1">
-                    <p class="n">7</p>
-                    <p class="n">8</p>
-                    <p class="n">9</p>
+                    <button class="n">7</button>
+                    <button class="n">8</button>
+                    <button class="n">9</button>
+                    <button>X</button>
                 </div>
                 <div class="l2">
-                    <p class="n">4</p>
-                    <p class="n">5</p>
-                    <p class="n">6</p>
+                    <button class="n">4</button>
+                    <button class="n">5</button>
+                    <button class="n">6</button>
+                    <button>-</button>
                 </div>
                 <div class="l3">
-                    <p class="n">4</p>
-                    <p class="n">5</p>
-                    <p class="n">6</p>
+                    <button class="n">1</button>
+                    <button class="n">2</button>
+                    <button class="n">3</button>
+                    <button>+</button>
                 </div>
                 <div class="l4">
-                    <p class="n">1</p>
-                    <p class="n">2</p>
-                    <p class="n">3</p>
+                    <button class="neg">&plusmn;</button>
+                    <button class="n">0</button>
+                    <button class="n">,</button>
+                    <button id="igual">=</button>
                 </div>
-                <div class="l5">
-                    <p class="n">&plusmn;</p>
-                    <p class="n">0</p>
-                    <p class="n">,</p>
-                </div>
-            </div>
-             <div class="funcoes" id="lateral">
-                <p>X</p>
-                <p>-</p>
-                <p>+</p>
-                <p id="igual">=</p>
             </div>
         </div>
     </section>
-
 </body>
 
 <style>
@@ -66,19 +67,35 @@
     }
 
     body {
-        width: 100vw;
-        height: 100vh;
         color: white;
     }
 
     section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background-color: #202020;
         border: none;
         border-radius: 6px;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .calc{
+        display: grid;
+        justify-items: end;
+        align-content: center;
+        width: 95vw;
+        padding-top: 6px;
+        opacity: 0.7;
     }
 
     .display {
         justify-items: end;
+        align-content: center;
+        width: 95vw;
+        height: 30vh;
+        font-size: 24px;
     }
 
     .funcoes {
@@ -92,7 +109,11 @@
         flex-direction: column;
     }
 
-    .l1, .l2, .l3, .l4, .l5 {
+    .l1,
+    .l2,
+    .l3,
+    .l4,
+    .l5 {
         display: flex;
     }
 
@@ -101,19 +122,217 @@
         flex-direction: column;
     }
 
-    p {
+    #igual {
+        background-color: #4cc2ff;
+        color: black;
+        opacity: 1;
+    }
+
+    button {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 2px;
-        width: 7vw;
-        height: 7vh;
-        background-color: #323232;
+        margin: 1px;
+        width: 24vw;
+        height: 13.4vh;
+        background-color: #3b3b3b;
+        border-radius: 7%;
+        opacity: 0.8;
+        font-size: 24px;
+        color: white;
+        border: none;
     }
 
-    .n {
+    button:hover {
+        opacity: 1;
+    }
+
+    .n,
+    .neg {
         background-color: #3b3b3b;
+        opacity: 1;
+    }
+
+    .n:hover,
+    .neg:hover {
+        opacity: 0.8;
+    }
+
+    #igual:hover {
+        opacity: 0.8;
+    }
+
+    .n:hover,
+    .neg:hover {
+        opacity: 0.8;
+    }
+
+    #igual:hover {
+        opacity: 0.8;
+    }
+
+    .n:active,
+    .neg:active {
+        opacity: 0.6;
+    }
+
+    #igual:active {
+        opacity: 0.6;
+    }
+
+    button:active {
+        opacity: 0.8;
     }
 </style>
+
+<script>
+    const result = document.querySelector('h1');
+    const buttons = document.querySelectorAll('button');
+    const number = document.querySelectorAll('.n');
+    const neg = document.querySelector('.neg');
+    const calc = document.querySelector('.calc');
+
+    number.forEach(number => {
+        number.addEventListener('click', (btn) => {
+
+            const valor1 = 0;
+            const valor2 = 0;
+
+            if (result.textContent === '0') {
+                result.innerHTML = btn.target.textContent;
+            } else {
+                result.innerHTML += btn.target.textContent;
+            }
+
+        });
+    });
+
+    neg.addEventListener('click', () => {
+        result.innerHTML = parseFloat(result.textContent) * -1;
+    });
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (btn) => {
+
+            if (btn.target.textContent === 'C') {
+                valor1 = 0;
+                valor2 = 0;
+                operacao = '';
+                memoria = 0;
+                result.innerHTML = '0';
+                calc.innerHTML = '';
+                console.log('valor1:', valor1);
+                console.log('valor2:', valor2);
+                console.log('operacao:', operacao);
+                console.log('resultado:', result.textContent);
+            } else if (btn.target.textContent === 'Back') {
+                result.textContent.length > 1 ? result.innerHTML = result.textContent.slice(0, -1) : result.innerHTML = '0';
+            } else if (btn.target.textContent === 'M+') {
+                memoria = memoria + parseFloat(result.textContent);
+                result.innerHTML = '0';
+                console.log('memoria:', memoria);
+            } else if (btn.target.textContent === 'MR') {
+                result.innerHTML = memoria;
+            } else if (btn.target.textContent === '+') {
+                valor1 = replaceCommaWithDot(result.textContent);
+                operacao = '+';
+                result.innerHTML = '0';
+                calc.innerHTML = `${replaceDotWithComma(valor1)} + `;
+            } else if (btn.target.textContent === '-') {
+                valor1 = replaceCommaWithDot(result.textContent);
+                operacao = '-';
+                result.innerHTML = '0';
+                calc.innerHTML = `${replaceDotWithComma(valor1)} - `;
+            } else if (btn.target.textContent === 'X') {
+                valor1 = replaceCommaWithDot(result.textContent);
+                operacao = '*';
+                result.innerHTML = '0';
+                calc.innerHTML = `${replaceDotWithComma(valor1)} X `;
+            } else if (btn.target.textContent === '÷') {
+                valor1 = replaceCommaWithDot(result.textContent);
+                operacao = '/';
+                result.innerHTML = '0';
+                calc.innerHTML = `${replaceDotWithComma(valor1)} ÷ `;
+            } else if (btn.target.textContent === '%') {
+                result.innerHTML = replaceCommaWithDot(result.textContent) / 100 * valor1;
+                calc.innerHTML = `${replaceDotWithComma(valor1)} ${operacao} ${replaceDotWithComma(result.textContent)}`;
+            } else if (btn.target.textContent === '√') {
+                valor1 = replaceCommaWithDot(result.textContent);
+                operacao = 'raiz';
+                result.innerHTML = replaceDotWithComma(Math.sqrt(valor1));
+            } else if (btn.target.textContent === 'x²') {
+                result.innerHTML = replaceDotWithComma(Math.pow(replaceCommaWithDot(result.textContent), 2));
+                operacao = 'quadrado';
+            } else if (btn.target.textContent === '=') {
+                valor2 = replaceCommaWithDot(result.textContent);
+
+                calc.innerHTML = `${replaceDotWithComma(valor1)} ${operacao} ${replaceDotWithComma(valor2)} = `;
+
+                switch (operacao) {
+                    case '+':
+                        result.innerHTML = sum(valor1, valor2);
+                        break;
+                    case '-':
+                        result.innerHTML = sub(valor1, valor2);
+                        break;
+                    case '*':
+                        result.innerHTML = mult(valor1, valor2);
+                        break;
+                    case '/':
+                        result.innerHTML = div(valor1, valor2);
+                        break;
+                    case 'raiz':
+                        result.innerHTML = raiz(valor1);
+                        break;
+                    case 'quadrado':
+                        result.innerHTML = quadrado(replaceCommaWithDot(result.textContent));
+                        break;
+                    default:
+                        break;
+                }
+                console.log('valor1:', valor1);
+                console.log('valor2:', valor2);
+                console.log('operacao:', operacao);
+                console.log('resultado:', result.textContent);
+                result.innerHTML = replaceDotWithComma(result.textContent);
+            }
+        });
+    });
+
+    function replaceCommaWithDot(value) {
+        return parseFloat(value.replace(',', '.'));
+    }
+
+    function replaceDotWithComma(value) {
+        return value.toString().replace('.', ',');
+    }
+
+    function sum(valor1, valor2) {
+        return valor1 + valor2;
+    }
+
+    function sub(valor1, valor2) {
+        return valor1 - valor2;
+    }
+
+    function mult(valor1, valor2) {
+        return valor1 * valor2;
+    }
+
+    function div(valor1, valor2) {
+        return valor1 / valor2;
+    }
+
+    function raiz(valor1) {
+        return Math.sqrt(valor1);
+    }
+
+    function quadrado(valor1) {
+        return Math.pow(valor1, 2);
+    }
+
+
+
+</script>
 
 </html>

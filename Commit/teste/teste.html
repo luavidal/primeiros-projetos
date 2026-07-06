@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+    <title>Teste de Movimento</title>
 </head>
 
 <body>
-    <div>
-        <img class="logo" src="..//../../../Downloads/lf_jbs.png" alt="logo-lf-jbs">
-    </div>
-
+    <h1>X</h1>
 </body>
 
 <style>
@@ -21,13 +18,66 @@
         box-sizing: border-box;
     }
 
-    div {
-
+    body {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+        /* Evita que barras de rolagem apareçam ao mover o X */
     }
 
-    .logo {
-        
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* Vamos manter o transform inicial para deixar bem centralizado */
+        transform: translate(-50%, -50%);
     }
 </style>
+
+<script>
+    const h1 = document.querySelector('h1');
+    const keysPressed = {};
+
+    // Variáveis para guardar o "deslocamento" atual
+    let posX = 0;
+    let posY = 0;
+    const speed = 5; // Velocidade do movimento (pixels por frame)
+
+ 
+    addEventListener('keydown', (event) => {
+        keysPressed[event.key] = true;
+    });
+
+    addEventListener('keyup', (event) => {
+        keysPressed[event.key] = false;
+    });
+
+    function gameLoop() {
+        // Subtrai ou soma a velocidade baseada na tecla pressionada
+        if (keysPressed['ArrowUp']) {
+            posY -= speed;
+        }
+        if (keysPressed['ArrowDown']) {
+            posY += speed;
+        }
+        if (keysPressed['ArrowLeft']) {
+            posX -= speed;
+        }
+        if (keysPressed['ArrowRight']) {
+            posX += speed;
+        }
+
+        // Aplica as novas coordenadas X e Y somadas aos -50% iniciais do CSS
+        h1.style.transform = `translate(calc(-50% + ${posX}px), calc(-50% + ${posY}px))`;
+
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Inicia o loop para a mágica acontecer!
+    gameLoop();
+
+
+
+</script>
 
 </html>
