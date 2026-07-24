@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevClub JokenPô</title>
+</head>
+
+<body>
+    <section>
+        <h1>Jokenpô</h1>
+        <div>
+            <button class="but" id="p1" value="pedra" onclick="playHuman('pedra')">✊</button>
+            <button class="but" id="p2" value="papel" onclick="playHuman('papel')">✋</button>
+            <button class="but" id="p3" value="tesoura" onclick="playHuman('tesoura')">✌️</button>
+        </div>
+        <h2>Sua pontuação: <span id="me">0</span></h2>
+        <h2>Pontuação da Alexa: <span id="you">0</span></h2>
+        <p class="personal"></p>
+        <p class="machine"></p>
+    </section>
+
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+    }
+
+    body {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background-image: url(https://images.pexels.com/photos/6985259/pexels-photo-6985259.jpeg);
+    }
+
+    section {
+        justify-items: center;
+        gap: 30px;
+        border-radius: 5px;
+        background-color: white;
+        padding: 40px 20px;
+        box-shadow: #00000090 5px 5px 10px;
+    }
+
+    div {
+        display: flex;
+        margin: 40px 0 60px;
+    }
+
+    button {
+        scale: 3;
+        margin: 0 40px;
+        padding: 7px 4px;
+        border-radius: 3px;
+        transition: box-shadow 0.2s;
+    }
+
+    button:hover {
+        scale: 2.9;
+        box-shadow: black 0 0 3px;
+        cursor: pointer;
+    }
+
+    button:active {
+        scale: 3;
+        box-shadow: black 0 0 3px;
+        cursor: pointer;
+    }
+
+    #p1 {
+        background-color: violet;
+    }
+
+    #p2 {
+        background-color: greenyellow;
+    }
+
+    #p3 {
+        background-color: lightskyblue;
+    }
+
+    h2 {
+        margin-top: 15px;
+    }
+
+    #me {
+        color: skyblue;
+        text-shadow: black 1px 1px 1px;
+        font-size: 28px;
+    }
+
+    #you {
+        color: palevioletred;
+        text-shadow: black 1px 1px 1px;
+        font-size: 28px;
+    }
+</style>
+<script>
+    const btn = document.querySelectorAll('button');
+    const options = ['pedra', 'papel', 'tesoura'];
+    let myPoint = document.getElementById('me');
+    let machinePoint = document.getElementById('you');
+    let resultado = document.querySelector('p');
+    let pointH = 0;
+    let pointM = 0;
+
+    const playHuman = (humanChoice) => {
+        let result = humanChoice;
+        let mac = playMachine();
+        playerGame(result, mac);
+    }
+
+    const playMachine = () => {
+        let i = Math.floor(Math.random() * 3);
+        let machine = options[i];
+        return machine;
+    }
+
+
+    const playerGame = (human, machine) => {
+        let h = human;
+        let m = machine;
+
+
+
+        if (h === m) {
+            resultado.innerHTML = 'Empate';
+            console.log(`human ${h}; machine ${m}`)
+        } else if ((h === 'pedra' && m === 'tesoura') || (h === 'tesoura' && m === 'papel') || (h === 'papel' && m === 'pedra')) {
+            resultado.innerHTML = 'Você venceu!'
+            console.log(`human ${h}; machine ${m}`)
+            pointH++;
+            myPoint.innerHTML = pointH
+        } else {
+            resultado.innerHTML = 'Você perdeu!'
+            console.log(`human ${h}; machine ${m}`)
+            pointM++;
+            machinePoint.innerHTML = pointM;
+        }
+    }
+
+
+
+
+    /* const btn = document.querySelectorAll('button');
+    const prf1 = document.querySelector('.personal');
+    const prf2 = document.querySelector('.machine');
+
+    btn.forEach(element => {
+
+        element.addEventListener('click', event => {
+            let x = event.target.value;
+            if (x === 'pedra') {
+                prf1.innerHTML = `Escolhi ${x}`;
+                prf2.innerHTML = `Escolhi ${num()}`
+                alert("pedra - " + num())
+            } else if (x === 'papel') {
+                prf1.innerHTML = `Escolhi ${x}`;
+                prf2.innerHTML = `Escolhi ${num()}`
+                alert("papel - " + num())
+            } else if (x === 'tesoura') {
+                prf1.innerHTML = `Escolhi ${x}`;
+                prf2.innerHTML = `Escolhi ${num()}`
+                alert("tesoura - " + num())
+            }
+            
+        })
+        return element;
+    });
+
+    function num() {
+        let n = Math.random().toFixed(1);
+        let hand = '';
+
+        if (n <= .3) {
+            hand = 'pedra';
+        } else if (n <= .6 && n > .3) {
+            hand = 'papel';
+        } else {
+            hand = 'tesoura';
+        }
+
+        return hand;
+    }
+
+    (prf1, prf2) =>{
+        if (prf1 === prf2){
+            prf1.innerHTML = `Empate! Tente novamente.`
+        }
+    } */
+
+
+</script>
+
+</html>

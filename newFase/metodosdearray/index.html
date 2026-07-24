@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+
+</head>
+
+<body>
+    <div class="header">
+        <button id="b1" title="Mostra todos os itens">Mostrar tudo ForEach</button>
+        <button id="b2" title="Dá 15% de desconto a todos os itens">Mapear <br>Map</button>
+        <button id="b3" title="Soma todos os valores em tela">Somar tudo Reduce</button>
+        <button id="b4" title="Filtra os itens veganos">Filtrar <br>Filter</button>
+    </div>
+
+    <div class="options">
+        <ul>
+<!--             <li id="xBaconEgg">
+                <img src="./archives/bacon-egg.png" alt="X Bacon Egg">
+                <p id='p1'>X-Bacon Egg</p>
+                <p class='p2'>R$ 39,00</p>
+            </li>
+            <li id="montruosoVegan">
+                <img src="./archives/monstruoso-vegan.png" alt="Monstruoso Vegan">
+                <p id='p1'>Monstruoso Vegan</p>
+                <p class='p2'>R$ 45,00</p>
+            </li>
+            <li id="monstruoso">
+                <img src="./archives/monstruoso.png" alt="Monstruoso">
+                <p id='p1'>Monstruoso</p>
+                <p class='p2'>R$ 50,00</p>
+            </li>
+            <li id="xBacon">
+                <img src="./archives/xbacon.png" alt="X Bacon">
+                <p id='p1'>X-Bacon</p>
+                <p class='p2'>R$ 34,00</p>
+            </li>
+            <li id="xSalada">
+                <img src="./archives/xsalada.jpeg" alt="X Salada">
+                <p id='p1'>X-Salada</p>
+                <p class='p2'>R$ 30,00</p>
+            </li>
+            <li id="xVegan">
+                <img src="./archives/xvegan.png" alt="X Vegan">
+                <p id='p1'>X-Vegan</p>
+                <p class='p2'>R$ 45,00</p>
+            </li> -->
+        </ul>
+    </div>
+
+
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        background-color: black;
+        padding: 10px;
+    }
+
+    .options ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Cria 3 colunas de tamanhos idênticos */
+        gap: 150px;
+        /* Adiciona um espaço perfeito entre os lanches */
+        list-style: none;
+        /* Remove as bolinhas padrão da tag ul */
+        padding: 0 300px;
+        justify-content: center;
+    }
+
+    .options li {
+        text-align: center;
+        transition: ease-in-out .1s;
+        display: default;
+        border: 2px solid #8133ff;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    .options li:hover {
+        scale: 1.05;
+    }
+
+    .header {
+        display: flex;
+        justify-self: center;
+        margin-bottom: 40px;
+    }
+
+    ul {
+        display: flex;
+        gap: 50px;
+    }
+
+    button {
+        font-size: 24px;
+        background-color: #00BE37;
+        color: white;
+        text-shadow: black 0 0 5px;
+        width: 150px;
+        height: 100px;
+        margin: 0 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: ease-in-out .07s;
+    }
+
+    button:hover {
+        opacity: .9;
+    }
+
+    button:active {
+        opacity: 1;
+        box-shadow: purple 0 0 5px 3px;
+        scale: .98;
+    }
+
+    img {
+        display: inline-block;
+        width: 100%;
+        height:75%;
+        border-radius: 5px;
+    }
+
+    p {
+        color: white;
+        text-shadow: black 0 0 10px 10px;
+    }
+
+    .p1 {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .p2 {
+        border-radius: 0 0 5px 5px;
+        color: #00BE37;
+        font-weight: bolder;
+    }
+</style>
+<script src="./products.js"></script>
+<script src="./scripts.js"></script>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Console</h1>
+    <br>
+    <div>
+        <p></p>
+    </div>
+    <br>
+
+    <button>Refresh</button>
+
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    div {
+        border: solid 1px black;
+        border-radius: 5px;
+        width: 40vw;
+        height: 30vh;
+    }
+</style>
+<script>
+    const paragraf = document.querySelector('p');
+    const list = [
+        { name: 'Rodolfo', vip: true },
+        { name: 'Maria', vip: false },
+        { name: 'João', vip: true },
+        { name: 'Bruno', vip: true },
+        { name: 'Carla', vip: false },
+        { name: 'Ana', vip: true },
+        { name: 'Julio', vip: false },
+    ]
+
+    const verificate = list.map(user => {
+        const braceletColor = {
+            name: user.name,
+            bracelet: user.vip ? 'Verde' : 'Yellow',
+        }
+        return braceletColor
+    })
+
+    paragraf.innerHTML = verificate;
+
+</script>
+
+</html>
