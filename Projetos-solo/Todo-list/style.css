@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    width: 100vw;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 4vh;
+    margin-left: 3vw;
+}
+
+.input-container,
+.registers {
+    display: flex;
+    align-items: center;
+    margin-top: 4vh;
+    margin-left: 3vw;
+    justify-items: center;
+}
+
+#taskInput,
+li {
+    width: 30vw;
+    height: 5vh;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    list-style-type: none;
+}
+
+.task {
+    display: flex;
+    align-items: baseline;
+    margin-top: 1vw;
+
+    li {
+        height: auto;
+        text-align: justify;
+        margin-left: -1.2vw;
+        transition: margin-left 0.3s ease;
+    }
+}
+
+.task:hover {
+    li {
+        margin-left: 0;
+    }
+
+}
+
+button {
+    width: 3vw;
+    height: 3vw;
+    margin-left: 1vw;
+    border: none;
+    border-radius: 40px;
+    background-color: #3d8de9;
+    color: white;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2c6bb2;
+}
+
+button:active {
+    background-color: #1a4f8c;
+}
+
+img {
+    width: 1.2vw;
+    cursor: pointer;
+}
+
+img:hover {
+    content: url('./archives/circle-hover.png');
+    width: 1.2vw;
+}
+
+img:active {
+    content: url('./archives/circle-activate.png');
+    width: 1.2vw;
+}
